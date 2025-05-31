@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Redirecting...&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function redirectToStore() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var userAgent = navigator.userAgent || navigator.vendor || window.opera;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// ** IMPORTANT: Replace these placeholder URLs with your actual URLs **</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var playStoreUrl = "https://play.google.com/store/apps/details?id=com.supplementguru.ai&amp;hl=en-US&amp;ah=ICuorTa7e2Z9ouu1IyOGhq_2ia4";<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var appStoreUrl = "YOUR_APPLE_APP_STORE_URL_HERE_WHEN_READY"; // For when your iOS app is live</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var fallbackUrl = "https://supplementguru.online"; // Your main website or a general fallback page</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// iOS detection</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (/iPad|iPhone|iPod/.test(userAgent) &amp;&amp; !window.MSStream) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// When your iOS app is ready, uncomment the line below and ensure appStoreUrl is correct.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// For now, if no iOS app, send to fallback or even Play Store if preferred for other mobile OS.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (appStoreUrl !== "YOUR_APPLE_APP_STORE_URL_HERE_WHEN_READY" &amp;&amp; appStoreUrl !== "") {</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>window.location.href = appStoreUrl;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>window.location.href = fallbackUrl; // Or playStoreUrl if you prefer</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Android detection</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (/android/i.test(userAgent)) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.location.href = playStoreUrl;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Fallback for desktop or other OS</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.location.href = fallbackUrl;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Automatically call the function when the page loads</p>
+<p class="p1"><span class="Apple-converted-space">        </span>redirectToStore();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;One moment, we're taking you to the right place for the Supplement Guru app...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
