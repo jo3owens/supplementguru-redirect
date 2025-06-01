@@ -5,40 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        function redirectToStore() {
+        function redirectToAppropriatePage() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            // ** IMPORTANT: Replace these placeholder URLs with your actual URLs **
-            var playStoreUrl = "https://play.google.com/store/apps/details?id=com.supplementguru.ai&hl=en-US&ah=ICuorTa7e2Z9ouu1IyOGhq_2ia4"; 
-            var appStoreUrl = "YOUR_APPLE_APP_STORE_URL_HERE_WHEN_READY"; // For when your iOS app is live
-            var fallbackUrl = "https://supplementguru.online"; // Your main website or a general fallback page
- 
+
+            // Define URLs
+            var playStoreUrl = "https://play.google.com/store/apps/details?id=com.supplementguru.ai&hl=en-US&ah=ICuorTa7e2Z9ouu1IyOGhq_2ia4";
+            var iosLandingPageUrl = "https://supplementguru.online/download"; // New landing page for iOS users
+            var webAppUrl = "https://supplementguru.online/guru";         // New URL for the web app (desktop users)
+
             // iOS detection
+            // Note: /ipad|iphone|ipod/ is a common regex. !window.MSStream is to exclude some Windows Phones.
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // When your iOS app is ready, uncomment the line below and ensure appStoreUrl is correct.
-                // For now, if no iOS app, send to fallback or even Play Store if preferred for other mobile OS.
-                if (appStoreUrl !== "YOUR_APPLE_APP_STORE_URL_HERE_WHEN_READY" && appStoreUrl !== "") {
-                     window.location.href = appStoreUrl;
-                } else {
-                     window.location.href = fallbackUrl; // Or playStoreUrl if you prefer
-                }
+                window.location.href = iosLandingPageUrl;
                 return;
             }
- 
+
             // Android detection
+            // Note: /android/i makes the search case-insensitive.
             if (/android/i.test(userAgent)) {
                 window.location.href = playStoreUrl;
                 return;
             }
- 
+
             // Fallback for desktop or other OS
-            window.location.href = fallbackUrl;
+            // If it's not iOS and not Android, send to the web app URL.
+            window.location.href = webAppUrl;
         }
+
         // Automatically call the function when the page loads
-        redirectToStore();
+        redirectToAppropriatePage();
     </script>
 </head>
 <body>
     <p>One moment, we're taking you to the right place for the Supplement Guru app...</p>
-    </body>
+    <p>If you are not redirected automatically, please click one of the links below:</p>
+    <ul>
+        <li><a id="androidLink" href="https://play.google.com/store/apps/details?id=com.supplementguru.ai&hl=en-US&ah=ICuorTa7e2Z9ouu1IyOGhq_2ia4">Android Users: Google Play Store</a></li>
+        <li><a id="iosLink" href="https://supplementguru.online/download">iOS Users: Learn More</a></li>
+        <li><a id="desktopLink" href="https://supplementguru.online/guru">Desktop Users: Web App</a></li>
+    </ul>
+    <script type="text/javascript">
+        // Optional: Update links dynamically if needed, though static is fine here too.
+        document.getElementById('androidLink').href = "https://play.google.com/store/apps/details?id=com.supplementguru.ai&hl=en-US&ah=ICuorTa7e2Z9ouu1IyOGhq_2ia4";
+        document.getElementById('iosLink').href = "https://supplementguru.online/download";
+        document.getElementById('desktopLink').href = "https://supplementguru.online/guru";
+    </script>
+</body>
 </html>
